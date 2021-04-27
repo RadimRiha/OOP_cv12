@@ -89,6 +89,12 @@ namespace WpfApp.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/GetDataUsingDataContract", ReplyAction="http://tempuri.org/IService1/GetDataUsingDataContractResponse")]
         System.Threading.Tasks.Task<WpfApp.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(WpfApp.ServiceReference1.CompositeType composite);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Calculate", ReplyAction="http://tempuri.org/IService1/CalculateResponse")]
+        decimal Calculate(decimal operand1, decimal operand2, string operation);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IService1/Calculate", ReplyAction="http://tempuri.org/IService1/CalculateResponse")]
+        System.Threading.Tasks.Task<decimal> CalculateAsync(decimal operand1, decimal operand2, string operation);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -132,6 +138,14 @@ namespace WpfApp.ServiceReference1 {
         
         public System.Threading.Tasks.Task<WpfApp.ServiceReference1.CompositeType> GetDataUsingDataContractAsync(WpfApp.ServiceReference1.CompositeType composite) {
             return base.Channel.GetDataUsingDataContractAsync(composite);
+        }
+        
+        public decimal Calculate(decimal operand1, decimal operand2, string operation) {
+            return base.Channel.Calculate(operand1, operand2, operation);
+        }
+        
+        public System.Threading.Tasks.Task<decimal> CalculateAsync(decimal operand1, decimal operand2, string operation) {
+            return base.Channel.CalculateAsync(operand1, operand2, operation);
         }
     }
 }

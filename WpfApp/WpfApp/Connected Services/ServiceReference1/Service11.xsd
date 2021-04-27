@@ -29,4 +29,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Calculate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="operand1" type="xs:decimal" />
+        <xs:element minOccurs="0" name="operand2" type="xs:decimal" />
+        <xs:element minOccurs="0" name="operation" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CalculateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CalculateResult" type="xs:decimal" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>

@@ -33,10 +33,10 @@ namespace WCFserviceApp
         {
             switch (operation)
             {
-                case "plus": return operand1 + operand2;
+                case "+": return operand1 + operand2;
                 case "-": return operand1 - operand2;
                 case "*": return operand1 * operand2;
-                case "/": return operand1 / operand2;
+                case "/": return operand2 != 0 ? operand1 / operand2 : 0.0M;
             }
             return 0.0M;
         }

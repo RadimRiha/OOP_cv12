@@ -24,5 +24,25 @@ namespace WpfApp
         {
             InitializeComponent();
         }
+        private void CalculateButton_Click(object sender, RoutedEventArgs e)
+        {
+            ServiceReference1.Service1Client service = new ServiceReference1.Service1Client();
+
+            decimal operand1;
+            decimal operand2;
+            string operation = OperationSelect.Text;
+
+            if (!Decimal.TryParse(OperandBox1.Text, out operand1)) operand1 = 0.0M;
+            if (!Decimal.TryParse(OperandBox2.Text, out operand2)) operand2 = 0.0M;
+
+            if(operation == "/" && operand2 == 0)
+            {
+                ResultLabel.Content = "NaN";
+            }
+            else
+            {
+                ResultLabel.Content = service.Calculate(operand1, operand2, operation);
+            }
+        }
     }
 }
